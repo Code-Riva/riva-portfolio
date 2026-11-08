@@ -47,6 +47,45 @@ const SOCIAL_ICONS = {
   ),
 };
 
+const SOCIAL_BRAND_CONFIG = {
+  GitHub: {
+    card: "hover:border-slate-800 focus-visible:border-slate-800 hover:shadow-[0_4px_20px_-2px_rgba(15,23,42,0.18)] focus-visible:shadow-[0_4px_20px_-2px_rgba(15,23,42,0.18)] hover:bg-slate-50/90 focus-visible:bg-slate-50/90 dark:hover:border-white/35 dark:focus-visible:border-white/35 dark:hover:shadow-[0_4px_24px_-2px_rgba(255,255,255,0.12)] dark:focus-visible:shadow-[0_4px_24px_-2px_rgba(255,255,255,0.12)] dark:hover:bg-white/[0.05] dark:focus-visible:bg-white/[0.05] focus-visible:outline-slate-900 dark:focus-visible:outline-white",
+    iconBox: "group-hover:bg-slate-900 group-hover:text-white group-focus-visible:bg-slate-900 group-focus-visible:text-white dark:group-hover:bg-white/20 dark:group-hover:text-white dark:group-focus-visible:bg-white/20 dark:group-focus-visible:text-white",
+    title: "group-hover:text-slate-900 group-focus-visible:text-slate-900 dark:group-hover:text-white dark:group-focus-visible:text-white",
+    arrow: "group-hover:text-slate-900 group-focus-visible:text-slate-900 dark:group-hover:text-white dark:group-focus-visible:text-white",
+  },
+  LinkedIn: {
+    card: "hover:border-[#0A66C2]/60 focus-visible:border-[#0A66C2] hover:shadow-[0_4px_20px_-2px_rgba(10,102,194,0.22)] focus-visible:shadow-[0_4px_20px_-2px_rgba(10,102,194,0.22)] hover:bg-[#0A66C2]/[0.03] focus-visible:bg-[#0A66C2]/[0.03] dark:hover:border-[#0A66C2]/70 dark:focus-visible:border-[#0A66C2] dark:hover:shadow-[0_4px_24px_-2px_rgba(10,102,194,0.40)] dark:focus-visible:shadow-[0_4px_24px_-2px_rgba(10,102,194,0.40)] dark:hover:bg-[#0A66C2]/[0.08] dark:focus-visible:bg-[#0A66C2]/[0.08] focus-visible:outline-[#0A66C2] dark:focus-visible:outline-[#388FE5]",
+    iconBox: "group-hover:bg-[#0A66C2]/10 group-hover:text-[#0A66C2] group-focus-visible:bg-[#0A66C2]/10 group-focus-visible:text-[#0A66C2] dark:group-hover:bg-[#0A66C2]/20 dark:group-hover:text-[#388FE5] dark:group-focus-visible:bg-[#0A66C2]/20 dark:group-focus-visible:text-[#388FE5]",
+    title: "group-hover:text-[#0A66C2] group-focus-visible:text-[#0A66C2] dark:group-hover:text-[#388FE5] dark:group-focus-visible:text-[#388FE5]",
+    arrow: "group-hover:text-[#0A66C2] group-focus-visible:text-[#0A66C2] dark:group-hover:text-[#388FE5] dark:group-focus-visible:text-[#388FE5]",
+  },
+  Instagram: {
+    card: "hover:border-[#E1306C]/60 focus-visible:border-[#E1306C] hover:shadow-[0_4px_20px_-2px_rgba(225,48,108,0.25),0_0_18px_-3px_rgba(131,58,180,0.20),0_0_12px_-2px_rgba(245,133,41,0.18)] focus-visible:shadow-[0_4px_20px_-2px_rgba(225,48,108,0.25),0_0_18px_-3px_rgba(131,58,180,0.20),0_0_12px_-2px_rgba(245,133,41,0.18)] hover:bg-gradient-to-r hover:from-purple-500/[0.04] hover:via-pink-500/[0.04] hover:to-amber-500/[0.04] focus-visible:bg-gradient-to-r focus-visible:from-purple-500/[0.04] focus-visible:via-pink-500/[0.04] focus-visible:to-amber-500/[0.04] dark:hover:border-[#E1306C]/70 dark:focus-visible:border-[#E1306C] dark:hover:shadow-[0_4px_24px_-2px_rgba(225,48,108,0.40),0_0_20px_-2px_rgba(131,58,180,0.32),0_0_16px_-2px_rgba(245,133,41,0.25)] dark:focus-visible:shadow-[0_4px_24px_-2px_rgba(225,48,108,0.40),0_0_20px_-2px_rgba(131,58,180,0.32),0_0_16px_-2px_rgba(245,133,41,0.25)] dark:hover:from-purple-600/[0.09] dark:hover:via-pink-600/[0.08] dark:hover:to-amber-600/[0.07] dark:focus-visible:from-purple-600/[0.09] dark:focus-visible:via-pink-600/[0.08] dark:focus-visible:to-amber-600/[0.07] focus-visible:outline-[#E1306C] dark:focus-visible:outline-[#FD1D1D]",
+    iconBox: "group-hover:bg-gradient-to-tr group-hover:from-[#F58529]/15 group-hover:via-[#DD2A7B]/15 group-hover:to-[#8134AF]/15 group-hover:text-[#E1306C] group-focus-visible:bg-gradient-to-tr group-focus-visible:from-[#F58529]/15 group-focus-visible:via-[#DD2A7B]/15 group-focus-visible:to-[#8134AF]/15 group-focus-visible:text-[#E1306C] dark:group-hover:from-[#F58529]/25 dark:group-hover:via-[#DD2A7B]/25 dark:group-hover:to-[#8134AF]/25 dark:group-hover:text-[#FD1D1D] dark:group-focus-visible:from-[#F58529]/25 dark:group-focus-visible:via-[#DD2A7B]/25 dark:group-focus-visible:to-[#8134AF]/25 dark:group-focus-visible:text-[#FD1D1D]",
+    title: "group-hover:bg-gradient-to-r group-hover:from-[#833AB4] group-hover:via-[#FD1D1D] group-hover:to-[#F58529] group-hover:bg-clip-text group-hover:text-transparent group-focus-visible:bg-gradient-to-r group-focus-visible:from-[#833AB4] group-focus-visible:via-[#FD1D1D] group-focus-visible:to-[#F58529] group-focus-visible:bg-clip-text group-focus-visible:text-transparent dark:group-hover:from-[#C13584] dark:group-hover:via-[#E1306C] dark:group-hover:to-[#FCAF45] dark:group-focus-visible:from-[#C13584] dark:group-focus-visible:via-[#E1306C] dark:group-focus-visible:to-[#FCAF45]",
+    arrow: "group-hover:text-[#E1306C] group-focus-visible:text-[#E1306C] dark:group-hover:text-[#FD1D1D] dark:group-focus-visible:text-[#FD1D1D]",
+  },
+  X: {
+    card: "hover:border-slate-800 focus-visible:border-slate-800 hover:shadow-[0_4px_20px_-2px_rgba(15,23,42,0.18)] focus-visible:shadow-[0_4px_20px_-2px_rgba(15,23,42,0.18)] hover:bg-slate-50/90 focus-visible:bg-slate-50/90 dark:hover:border-white/35 dark:focus-visible:border-white/35 dark:hover:shadow-[0_4px_24px_-2px_rgba(255,255,255,0.12)] dark:focus-visible:shadow-[0_4px_24px_-2px_rgba(255,255,255,0.12)] dark:hover:bg-white/[0.05] dark:focus-visible:bg-white/[0.05] focus-visible:outline-slate-900 dark:focus-visible:outline-white",
+    iconBox: "group-hover:bg-slate-900 group-hover:text-white group-focus-visible:bg-slate-900 group-focus-visible:text-white dark:group-hover:bg-white/20 dark:group-hover:text-white dark:group-focus-visible:bg-white/20 dark:group-focus-visible:text-white",
+    title: "group-hover:text-slate-900 group-focus-visible:text-slate-900 dark:group-hover:text-white dark:group-focus-visible:text-white",
+    arrow: "group-hover:text-slate-900 group-focus-visible:text-slate-900 dark:group-hover:text-white dark:group-focus-visible:text-white",
+  },
+  Telegram: {
+    card: "hover:border-[#229ED9]/60 focus-visible:border-[#229ED9] hover:shadow-[0_4px_20px_-2px_rgba(34,158,217,0.22)] focus-visible:shadow-[0_4px_20px_-2px_rgba(34,158,217,0.22)] hover:bg-[#229ED9]/[0.03] focus-visible:bg-[#229ED9]/[0.03] dark:hover:border-[#229ED9]/70 dark:focus-visible:border-[#229ED9] dark:hover:shadow-[0_4px_24px_-2px_rgba(34,158,217,0.40)] dark:focus-visible:shadow-[0_4px_24px_-2px_rgba(34,158,217,0.40)] dark:hover:bg-[#229ED9]/[0.08] dark:focus-visible:bg-[#229ED9]/[0.08] focus-visible:outline-[#229ED9] dark:focus-visible:outline-[#38BDF8]",
+    iconBox: "group-hover:bg-[#229ED9]/10 group-hover:text-[#229ED9] group-focus-visible:bg-[#229ED9]/10 group-focus-visible:text-[#229ED9] dark:group-hover:bg-[#229ED9]/20 dark:group-hover:text-[#38BDF8] dark:group-focus-visible:bg-[#229ED9]/20 dark:group-focus-visible:text-[#38BDF8]",
+    title: "group-hover:text-[#229ED9] group-focus-visible:text-[#229ED9] dark:group-hover:text-[#38BDF8] dark:group-focus-visible:text-[#38BDF8]",
+    arrow: "group-hover:text-[#229ED9] group-focus-visible:text-[#229ED9] dark:group-hover:text-[#38BDF8] dark:group-focus-visible:text-[#38BDF8]",
+  },
+  WhatsApp: {
+    card: "hover:border-[#25D366]/60 focus-visible:border-[#25D366] hover:shadow-[0_4px_20px_-2px_rgba(37,211,102,0.22)] focus-visible:shadow-[0_4px_20px_-2px_rgba(37,211,102,0.22)] hover:bg-[#25D366]/[0.03] focus-visible:bg-[#25D366]/[0.03] dark:hover:border-[#25D366]/70 dark:focus-visible:border-[#25D366] dark:hover:shadow-[0_4px_24px_-2px_rgba(37,211,102,0.40)] dark:focus-visible:shadow-[0_4px_24px_-2px_rgba(37,211,102,0.40)] dark:hover:bg-[#25D366]/[0.08] dark:focus-visible:bg-[#25D366]/[0.08] focus-visible:outline-[#25D366] dark:focus-visible:outline-[#25D366]",
+    iconBox: "group-hover:bg-[#25D366]/10 group-hover:text-[#1EBE5D] group-focus-visible:bg-[#25D366]/10 group-focus-visible:text-[#1EBE5D] dark:group-hover:bg-[#25D366]/20 dark:group-hover:text-[#25D366] dark:group-focus-visible:bg-[#25D366]/20 dark:group-focus-visible:text-[#25D366]",
+    title: "group-hover:text-[#1EBE5D] group-focus-visible:text-[#1EBE5D] dark:group-hover:text-[#25D366] dark:group-focus-visible:text-[#25D366]",
+    arrow: "group-hover:text-[#1EBE5D] group-focus-visible:text-[#1EBE5D] dark:group-hover:text-[#25D366] dark:group-focus-visible:text-[#25D366]",
+  },
+};
+
 export default function ContactSection() {
   const [copyState, setCopyState] = useState("idle"); // "idle" | "success" | "error"
   const [projectType, setProjectType] = useState("");
@@ -201,44 +240,52 @@ export default function ContactSection() {
               </h3>
 
               <div className="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-                {CONTACT_CONFIG.socials.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-between rounded-xl border border-slate-200/90 bg-white p-4 shadow-[0_2px_10px_-2px_rgba(15,23,42,0.04)] transition-all duration-250 ease-out hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-white/[0.06] dark:bg-[#0A0F1A] dark:shadow-none dark:hover:border-white/[0.14] dark:hover:bg-[#0D1422] motion-reduce:transform-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#245BDB] dark:focus-visible:outline-[#4F7CFF]"
-                  >
-                    <div className="flex items-center gap-3 min-w-0">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition-colors duration-250 group-hover:bg-[#245BDB]/10 group-hover:text-[#245BDB] dark:bg-white/[0.05] dark:text-slate-300 dark:group-hover:bg-[#4F7CFF]/15 dark:group-hover:text-[#4F7CFF]">
-                        {SOCIAL_ICONS[social.name]}
-                      </span>
-                      <div className="min-w-0">
-                        <p className="text-base sm:text-[17px] font-medium text-slate-950 transition-colors duration-250 group-hover:text-[#245BDB] dark:text-white dark:group-hover:text-[#4F7CFF] truncate">
-                          {social.name}
-                        </p>
-                        <p className="text-sm font-normal text-slate-500 dark:text-slate-400 truncate">
-                          {social.handle}
-                        </p>
-                      </div>
-                    </div>
-
-                    <svg
-                      className="h-4 w-4 shrink-0 text-slate-400 transition-all duration-250 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#245BDB] dark:group-hover:text-[#4F7CFF]"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      stroke="currentColor"
-                      aria-hidden="true"
+                {CONTACT_CONFIG.socials.map((social) => {
+                  const brand =
+                    SOCIAL_BRAND_CONFIG[social.name] || SOCIAL_BRAND_CONFIG.GitHub;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group flex items-center justify-between rounded-xl border border-slate-200/90 bg-white p-4 shadow-[0_2px_10px_-2px_rgba(15,23,42,0.04)] transition-all duration-250 ease-out hover:-translate-y-0.5 focus-visible:-translate-y-0.5 motion-reduce:transform-none dark:border-white/[0.06] dark:bg-[#0A0F1A] dark:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${brand.card}`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                      />
-                    </svg>
-                  </a>
-                ))}
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition-all duration-250 dark:bg-white/[0.05] dark:text-slate-300 ${brand.iconBox}`}
+                        >
+                          {SOCIAL_ICONS[social.name]}
+                        </span>
+                        <div className="min-w-0">
+                          <p
+                            className={`text-base sm:text-[17px] font-medium text-slate-950 transition-colors duration-250 dark:text-white truncate ${brand.title}`}
+                          >
+                            {social.name}
+                          </p>
+                          <p className="text-sm font-normal text-slate-500 dark:text-slate-400 truncate">
+                            {social.handle}
+                          </p>
+                        </div>
+                      </div>
+
+                      <svg
+                        className={`h-4 w-4 shrink-0 text-slate-400 transition-all duration-250 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-focus-visible:translate-x-0.5 group-focus-visible:-translate-y-0.5 motion-reduce:transform-none ${brand.arrow}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                        />
+                      </svg>
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
