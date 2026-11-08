@@ -143,31 +143,10 @@ export default async function ProjectDetailPage({ params }) {
                   </span>
                 ))}
               </div>
-            </div>
 
-            {/* Implementation & Deployment Status */}
-            <div className="mt-12 border-t border-slate-200/70 pt-10 dark:border-white/[0.06]">
-              <h2 className="text-xl font-semibold text-slate-950 dark:text-white">
-                Status & verification
-              </h2>
-              <div className="mt-4 rounded-xl border border-slate-200/90 bg-white p-5 shadow-sm dark:border-white/[0.06] dark:bg-[#0A0F1A] dark:shadow-none">
-                <div className="flex items-center gap-2">
-                  <span
-                    className="h-2 w-2 rounded-full"
-                    style={{ backgroundColor: theme.hex }}
-                  />
-                  <span className="text-sm font-semibold text-slate-900 dark:text-white">
-                    {project.status.summary}
-                  </span>
-                </div>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                  {project.status.deployment}
-                </p>
-              </div>
-
-              {/* Show repository/demo links only when real URLs exist */}
-              {project.links.github || project.links.liveDemo ? (
-                <div className="mt-6 flex flex-wrap gap-4">
+              {/* Primary Action Buttons (Launch live demo / View source code) */}
+              {(project.links.liveDemo || project.links.github) && (
+                <div className="mt-8 flex flex-wrap gap-4">
                   {project.links.liveDemo && (
                     <a
                       href={project.links.liveDemo}
@@ -189,40 +168,17 @@ export default async function ProjectDetailPage({ params }) {
                     </a>
                   )}
                 </div>
-              ) : (
-                <div className="mt-6 flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-xs text-slate-600 dark:border-white/[0.08] dark:bg-white/[0.02] dark:text-slate-400">
-                  <span className="h-2 w-2 rounded-full bg-amber-500" />
-                  <span>Work in progress — public repository and deployment pending final verification.</span>
-                </div>
               )}
             </div>
 
-            {/* Bottom Actions: Return to work + Discuss a similar project / Go to Project */}
-            <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200/70 pt-8 dark:border-white/[0.06]">
+            {/* Bottom Navigation */}
+            <div className="mt-12 border-t border-slate-200/70 pt-8 dark:border-white/[0.06]">
               <Link
                 href="/#projects"
                 className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-[#245BDB] dark:text-slate-400 dark:hover:text-[#4F7CFF]"
               >
                 ← Back to selected work
               </Link>
-
-              {project.status.isLiveDeployed && project.links.liveDemo ? (
-                <a
-                  href={project.links.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary h-[46px] px-6 text-sm"
-                >
-                  Go to Project →
-                </a>
-              ) : (
-                <Link
-                  href="/#contact"
-                  className="btn-primary h-[46px] px-6 text-sm"
-                >
-                  Discuss a similar project
-                </Link>
-              )}
             </div>
           </div>
         </main>
