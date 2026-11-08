@@ -14,7 +14,7 @@ export default function Hero() {
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#245BDB] dark:bg-[#4F7CFF]" />
               <p className="text-sm font-medium text-[#245BDB] dark:text-[#4F7CFF]">
-                Riva · Web3 Developer
+                Full Stack Web3 Developer
               </p>
             </div>
 
