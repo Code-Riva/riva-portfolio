@@ -1,0 +1,511 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Scoped Design Tokens for Authoritative Theme System */
+:root {
+  /* Light Mode Palette: Pearl Canvas, Deep Ink, Cobalt Accent */
+  color-scheme: light;
+  --bg-canvas: #F5F7FC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-subtle: #F8FAFD;
+  --bg-navbar: rgba(245, 247, 252, 0.88);
+  --border-navbar: rgba(15, 23, 42, 0.08);
+  --shadow-navbar: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
+  --fg-heading: #0B0F19;
+  --fg-body: #334155;
+  --fg-muted: #64748B;
+  --accent-primary: #245BDB;
+  --accent-primary-hover: #1D4ED8;
+  --accent-secondary: #0284C7;
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-medium: rgba(15, 23, 42, 0.14);
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-card-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Theme-aware Scrollbar: Light (pale cool track, medium slate-blue thumb, cobalt hover) */
+  --scrollbar-track: #EEF2F8;
+  --scrollbar-thumb: #94A3B8;
+  --scrollbar-thumb-hover: #245BDB;
+}
+
+.dark {
+  /* Dark Mode Palette: Deep Ink Canvas, Cool Gray, Electric Blue Accent */
+  color-scheme: dark;
+  --bg-canvas: #070A12;
+  --bg-surface: #0A0F1A;
+  --bg-surface-subtle: #0D1422;
+  --bg-navbar: rgba(7, 10, 18, 0.88);
+  --border-navbar: rgba(255, 255, 255, 0.08);
+  --shadow-navbar: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  --fg-heading: #F8FAFC;
+  --fg-body: #94A3B8;
+  --fg-muted: #64748B;
+  --accent-primary: #4F7CFF;
+  --accent-primary-hover: #6890FF;
+  --accent-secondary: #22D3EE;
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 12px 28px -4px rgba(0, 0, 0, 0.55);
+
+  /* Theme-aware Scrollbar: Dark (near-black track, subdued slate-blue thumb, brighter blue hover) */
+  --scrollbar-track: #070A12;
+  --scrollbar-thumb: #243044;
+  --scrollbar-thumb-hover: #4F7CFF;
+}
+
+html {
+  background-color: var(--bg-canvas);
+  color: var(--fg-body);
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Document scrollbar with stable gutter preventing shift on dialog/modal lock */
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Ensure body does NOT break sticky positioning */
+body {
+  min-height: 100vh;
+  background-color: var(--bg-canvas);
+  color: var(--fg-body);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollable dialogs and containers */
+[role="dialog"],
+[role="dialog"] *,
+.overflow-y-auto,
+.overflow-auto {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* WebKit Scrollbar Styling (usable 10px width, subtle rounding, padding-box border) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  border: 2px solid var(--scrollbar-track);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+/* Forced-colors fallback for Windows High Contrast & Accessibility */
+@media (forced-colors: active) {
+  html,
+  [role="dialog"],
+  [role="dialog"] *,
+  .overflow-y-auto,
+  .overflow-auto {
+    scrollbar-color: auto;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: Canvas;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ButtonText;
+    border: 2px solid Canvas;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: Highlight;
+  }
+}
+
+/* Focus indicator */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+/* Shared Primary CTA Button Treatment */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF !important;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+  background-image: linear-gradient(135deg, #245BDB 0%, #4840BD 50%, #245BDB 100%);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.28), 0 4px 14px 0 rgba(36, 91, 219, 0.22), 0 1px 2px 0 rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  transition: background-position 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-primary:hover {
+  background-position: 100% 0%;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.35), 0 6px 20px 0 rgba(72, 64, 189, 0.32), 0 2px 4px 0 rgba(15, 23, 42, 0.1);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0.5px) scale(0.99);
+  box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 2px 6px 0 rgba(36, 91, 219, 0.2);
+}
+
+.dark .btn-primary {
+  background-image: linear-gradient(135deg, #365FE0 0%, #5845D6 50%, #365FE0 100%);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.22), 0 4px 16px 0 rgba(54, 95, 224, 0.35), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dark .btn-primary:hover {
+  background-position: 100% 0%;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.32), 0 6px 22px 0 rgba(88, 69, 214, 0.48), 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+.dark .btn-primary:active {
+  transform: translateY(0.5px) scale(0.99);
+  box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.3), 0 2px 8px 0 rgba(54, 95, 224, 0.25);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+/* Targeted Theme Transition Engine (420ms ease-in-out) */
+.theme-transitions,
+.theme-transitions body {
+  transition: background-color 420ms ease-in-out, color 420ms ease-in-out;
+}
+
+.theme-transitions header {
+  transition: background-color 420ms ease-in-out, border-color 420ms ease-in-out, box-shadow 420ms ease-in-out;
+}
+
+.theme-transitions section {
+  transition: border-color 420ms ease-in-out;
+}
+
+.theme-transitions footer {
+  transition: background-color 420ms ease-in-out, border-color 420ms ease-in-out;
+}
+
+.theme-transitions [role="tabpanel"],
+.theme-transitions [role="tab"] {
+  transition: background-color 420ms ease-in-out, border-color 420ms ease-in-out, box-shadow 420ms ease-in-out, color 420ms ease-in-out;
+}
+
+/* Navbar Hover Scale (Approx 1.25x with 300ms timing, desktop only via @media (hover: hover)) */
+.nav-scale-hover {
+  transition: color 240ms ease-out, opacity 240ms ease-out, background-color 240ms ease-out, border-color 240ms ease-out, box-shadow 240ms ease-out;
+}
+
+@media (hover: hover) {
+  .nav-scale-hover {
+    transform-origin: center;
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), color 240ms ease-out, opacity 240ms ease-out, background-color 240ms ease-out, border-color 240ms ease-out, box-shadow 240ms ease-out !important;
+    will-change: transform;
+  }
+
+  .nav-scale-hover:hover {
+    transform: scale(1.25);
+  }
+
+  .nav-scale-cta {
+    transform-origin: center;
+    transition: background-position 300ms ease, box-shadow 300ms ease, transform 300ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+    will-change: transform;
+  }
+
+  .nav-scale-cta:hover {
+    transform: scale(1.05) translateY(-1px) !important;
+  }
+
+  .nav-scale-cta:active {
+    transform: scale(1.15) translateY(0.5px) !important;
+  }
+}
+
+/* Light Navbar Gradient Surface (Pale blue -> Pearl -> Pale lilac) & Dark fallback */
+.navbar-surface {
+  background-image: linear-gradient(
+    90deg,
+    rgba(235, 242, 254, 0.95) 0%,
+    rgba(246, 248, 252, 0.96) 50%,
+    rgba(239, 234, 251, 0.95) 100%
+  );
+}
+
+.dark .navbar-surface {
+  background-image: none;
+  background-color: rgba(7, 10, 18, 0.92);
+}
+
+.mobile-drawer-surface {
+  background-image: linear-gradient(
+    180deg,
+    rgba(236, 243, 254, 0.98) 0%,
+    rgba(246, 248, 252, 0.98) 50%,
+    rgba(240, 235, 252, 0.98) 100%
+  );
+}
+
+.dark .mobile-drawer-surface {
+  background-image: none;
+  background-color: rgba(7, 10, 18, 0.98);
+}
+
+/* Mobile Menu Drawer Animation (250ms open ease-out / 200ms close ease-out) */
+@keyframes mobileMenuEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileMenuExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.mobile-menu-enter {
+  animation: mobileMenuEnter 250ms ease-out forwards;
+  will-change: opacity, transform;
+}
+
+.mobile-menu-exit {
+  animation: mobileMenuExit 200ms ease-out forwards;
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+/* Services Preview Change Animation (300ms ease-out) */
+@keyframes servicePreviewFade {
+  from {
+    opacity: 0.35;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-preview-fade {
+  animation: servicePreviewFade 300ms ease-out;
+  will-change: opacity, transform;
+}
+
+/* Shared Project Title Hover Treatment (300ms crossfade + seamless repeating highlight sweep) */
+.project-title-hover {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.project-title-hover .project-title-base {
+  display: block;
+  width: 100%;
+  transition: opacity 300ms ease-out;
+}
+
+.project-title-hover .project-title-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  background-size: 200% 100%;
+  background-position: 0% 0;
+  background-image: linear-gradient(
+    90deg,
+    #245BDB 0%,
+    #245BDB 9%,
+    #4840BD 15%,
+    #60A5FA 20%,
+    #818CF8 25%,
+    #60A5FA 30%,
+    #4840BD 35%,
+    #245BDB 41%,
+    #245BDB 50%,
+    #245BDB 59%,
+    #4840BD 65%,
+    #60A5FA 70%,
+    #818CF8 75%,
+    #60A5FA 80%,
+    #4840BD 85%,
+    #245BDB 91%,
+    #245BDB 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: opacity 300ms ease-out;
+  white-space: normal;
+}
+
+.dark .project-title-hover .project-title-gradient {
+  background-image: linear-gradient(
+    90deg,
+    #4F7CFF 0%,
+    #4F7CFF 9%,
+    #818CF8 15%,
+    #C4B5FD 20%,
+    #EDE9FE 25%,
+    #C4B5FD 30%,
+    #818CF8 35%,
+    #4F7CFF 41%,
+    #4F7CFF 50%,
+    #4F7CFF 59%,
+    #818CF8 65%,
+    #C4B5FD 70%,
+    #EDE9FE 75%,
+    #C4B5FD 80%,
+    #818CF8 85%,
+    #4F7CFF 91%,
+    #4F7CFF 100%
+  );
+}
+
+@keyframes titleHighlightSweep {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+.group:hover .project-title-hover .project-title-base,
+.group:focus-visible .project-title-hover .project-title-base,
+.service-preview-card:has(.service-explore-link:hover) .project-title-hover .project-title-base,
+.service-preview-card:has(.service-explore-link:focus-visible) .project-title-hover .project-title-base {
+  opacity: 0;
+}
+
+.group:hover .project-title-hover .project-title-gradient,
+.service-preview-card:has(.service-explore-link:hover) .project-title-hover .project-title-gradient {
+  opacity: 1;
+  animation: titleHighlightSweep 2s linear infinite;
+}
+
+.group:focus-visible .project-title-hover .project-title-gradient,
+.service-preview-card:has(.service-explore-link:focus-visible) .project-title-hover .project-title-gradient {
+  opacity: 1;
+  animation: none;
+  background-position: 0% 0;
+}
+
+/* Atmospheric subtle background animation */
+@keyframes ambientDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(20px, -12px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-ambient-drift {
+  animation: ambientDrift 24s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-ambient-drift {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .btn-primary,
+  .btn-primary:hover,
+  .btn-primary:active,
+  .nav-scale-hover,
+  .nav-scale-hover:hover,
+  .nav-scale-cta,
+  .nav-scale-cta:hover,
+  .nav-scale-cta:active {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .mobile-menu-enter,
+  .mobile-menu-exit {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .service-preview-fade {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .project-title-hover .project-title-base,
+  .project-title-hover .project-title-gradient {
+    transition: none !important;
+    animation: none !important;
+    background-position: 0% 0 !important;
+  }
+
+  .theme-transitions,
+  .theme-transitions body,
+  .theme-transitions header,
+  .theme-transitions section,
+  .theme-transitions footer,
+  .theme-transitions [role="tabpanel"],
+  .theme-transitions [role="tab"] {
+    transition: none !important;
+  }
+}
