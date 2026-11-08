@@ -251,7 +251,7 @@ export const PROJECTS_DATA = [
     },
     links: {
       github: "https://github.com/Code-Riva/dragoon-blacksmith",
-      liveDemo: "https://dragoon-blacksmith.vercel.app",
+      liveDemo: "https://dragoon-blacksmith.vercel.app/",
     },
     graphicType: "forge-anvil",
   },
@@ -327,7 +327,7 @@ export const PROJECTS_DATA = [
     },
     links: {
       github: "https://github.com/Code-Riva/dragoon-wallet-dashboard",
-      liveDemo: "https://dragoon-wallet-dashboard.vercel.app",
+      liveDemo: "https://dragoon-wallet-dashboard.vercel.app/",
     },
     graphicType: "wallet-interface",
   },
@@ -364,7 +364,7 @@ export const PROJECTS_DATA = [
     },
     links: {
       github: "https://github.com/Code-Riva/dragoon-market",
-      liveDemo: "https://dragoon-market.vercel.app",
+      liveDemo: "https://dragoon-market.vercel.app/",
     },
     graphicType: "market-chart",
   },
@@ -401,7 +401,7 @@ export const PROJECTS_DATA = [
     },
     links: {
       github: "https://github.com/Code-Riva/dragoon-token-landing",
-      liveDemo: "https://dragoon-token-landing.vercel.app",
+      liveDemo: "https://dragoon-token-landing.vercel.app/",
     },
     graphicType: "token-blueprint",
   },

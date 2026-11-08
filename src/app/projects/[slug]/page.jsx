@@ -197,7 +197,7 @@ export default async function ProjectDetailPage({ params }) {
               )}
             </div>
 
-            {/* Bottom Actions: Return to work + Discuss a similar project */}
+            {/* Bottom Actions: Return to work + Discuss a similar project / Go to Project */}
             <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200/70 pt-8 dark:border-white/[0.06]">
               <Link
                 href="/#projects"
@@ -206,12 +206,23 @@ export default async function ProjectDetailPage({ params }) {
                 ← Back to selected work
               </Link>
 
-              <Link
-                href="/#contact"
-                className="btn-primary h-[46px] px-6 text-sm"
-              >
-                Discuss a similar project
-              </Link>
+              {project.status.isLiveDeployed && project.links.liveDemo ? (
+                <a
+                  href={project.links.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary h-[46px] px-6 text-sm"
+                >
+                  Go to Project →
+                </a>
+              ) : (
+                <Link
+                  href="/#contact"
+                  className="btn-primary h-[46px] px-6 text-sm"
+                >
+                  Discuss a similar project
+                </Link>
+              )}
             </div>
           </div>
         </main>
