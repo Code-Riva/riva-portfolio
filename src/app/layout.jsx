@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Qamra Ariva (Riva) — Web3 Developer",
@@ -63,6 +64,7 @@ export default function RootLayout({ children }) {
         </a>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
