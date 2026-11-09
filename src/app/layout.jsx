@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "Qamra Ariva (Riva) — Web3 Developer",
@@ -61,6 +62,7 @@ export default function RootLayout({ children }) {
           Skip to main content
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );
