@@ -3,9 +3,47 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
+  metadataBase: new URL("https://qamrariva.site"),
   title: "Qamra Ariva (Riva) — Web3 Developer",
   description:
     "Professional portfolio of Qamra Ariva (Riva), Web3 developer building websites, wallet-connected applications, and smart-contract interfaces.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Qamra Ariva (Riva) — Web3 Developer",
+    description:
+      "Professional portfolio of Qamra Ariva (Riva), Web3 developer building websites, wallet-connected applications, and smart-contract interfaces.",
+    url: "https://qamrariva.site",
+    siteName: "Qamra Ariva (Riva)",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Qamra Ariva (Riva) — Full Stack Web3 Developer — Turning Web3 ideas into usable products.",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Qamra Ariva (Riva) — Web3 Developer",
+    description:
+      "Professional portfolio of Qamra Ariva (Riva), Web3 developer building websites, wallet-connected applications, and smart-contract interfaces.",
+    site: "@qamrariva",
+    creator: "@qamrariva",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Qamra Ariva (Riva) — Full Stack Web3 Developer — Turning Web3 ideas into usable products.",
+      },
+    ],
+  },
   icons: {
     icon: "/icon.svg",
   },
